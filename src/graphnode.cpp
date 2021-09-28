@@ -11,7 +11,16 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+    //////////////////////////
+    // the following code causes the initial crash when closing the app
+    // (_chatBot image already deleted by the destructor)
+    // TO DO: check why the destructor is only deleting _image! should it delete the entire chatbot I guess?
+    //
+    // if (_chatBot != nullptr)
+    // {
+    //     delete _chatBot; 
+    // }
+    ///////////////////////////
 
     ////
     //// EOF STUDENT CODE
