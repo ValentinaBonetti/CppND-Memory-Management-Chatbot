@@ -48,7 +48,7 @@ ChatBot::~ChatBot()
 // copy constructor
 ChatBot::ChatBot(const ChatBot &source)
 {
-    std::cout << "Copy constructor" << std::endl;
+    std::cout << "ChatBot Copy Constructor" << std::endl;
     // owned:
     _image = new wxBitmap();
     *_image = *source._image;
@@ -62,7 +62,7 @@ ChatBot::ChatBot(const ChatBot &source)
 // copy operator
 ChatBot& ChatBot::operator=(const ChatBot &source)
 {
-    std::cout << "Copy assigment operator" << std::endl;
+    std::cout << "ChatBot Copy Assigment Operator" << std::endl;
     if (this == &source) return *this;
 
     // owned:
@@ -85,7 +85,7 @@ ChatBot& ChatBot::operator=(const ChatBot &source)
 // move constructor
 ChatBot::ChatBot(ChatBot &&source)
 {
-    std::cout << "Move constructor" << std::endl;
+    std::cout << "ChatBot Move Constructor" << std::endl;
 
     // owned:
     _image = source._image;
@@ -105,7 +105,7 @@ ChatBot::ChatBot(ChatBot &&source)
 ChatBot& ChatBot::operator=(ChatBot &&source)
 {
     if (this == &source) return *this;
-    std::cout << "Move assignment operator" << std::endl;
+    std::cout << "ChatBot Move Assignment Operator" << std::endl;
 
     // owned:
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
@@ -175,6 +175,9 @@ void ChatBot::SetCurrentNode(GraphNode *node)
     std::mt19937 generator(int(std::time(0)));
     std::uniform_int_distribution<int> dis(0, answers.size() - 1);
     std::string answer = answers.at(dis(generator));
+
+    // set chatbot handle
+    _chatLogic->SetChatbotHandle(this);
 
     // send selected node answer to user
     _chatLogic->SendMessageToUser(answer);

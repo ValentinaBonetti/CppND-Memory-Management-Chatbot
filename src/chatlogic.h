@@ -19,7 +19,7 @@ private:
 
     // data handles (owned)
     //std::vector<GraphNode *> _nodes;
-    std::vector<std::unique_ptr<GraphNode>> _nodes;
+    std::vector<std::unique_ptr<GraphNode> > _nodes;
     //should the _edges vector be of shared pointer? can't solve conflict with graphnode children..
     // no, you can actually eliminate it
     //std::vector<std::unique_ptr<GraphEdge>> _edges; 
