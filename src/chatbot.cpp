@@ -42,9 +42,6 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
-
 // copy constructor
 ChatBot::ChatBot(const ChatBot &source)
 {
@@ -59,7 +56,7 @@ ChatBot::ChatBot(const ChatBot &source)
     _currentNode = source._currentNode;
 }
 
-// copy operator
+// copy assignment operator
 ChatBot& ChatBot::operator=(const ChatBot &source)
 {
     std::cout << "ChatBot Copy Assigment Operator" << std::endl;
@@ -128,9 +125,6 @@ ChatBot& ChatBot::operator=(ChatBot &&source)
     return *this;
 }
 
-////
-//// EOF STUDENT CODE
-
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
     // loop over all edges and keywords and compute Levenshtein distance to query
@@ -176,7 +170,7 @@ void ChatBot::SetCurrentNode(GraphNode *node)
     std::uniform_int_distribution<int> dis(0, answers.size() - 1);
     std::string answer = answers.at(dis(generator));
 
-    // set chatbot handle
+    // set chatbot handle in chatLogic
     _chatLogic->SetChatbotHandle(this);
 
     // send selected node answer to user

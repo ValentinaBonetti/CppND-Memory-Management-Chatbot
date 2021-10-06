@@ -14,18 +14,8 @@ class GraphNode;
 class ChatLogic
 {
 private:
-    //// STUDENT CODE
-    ////
-
     // data handles (owned)
-    //std::vector<GraphNode *> _nodes;
     std::vector<std::unique_ptr<GraphNode> > _nodes;
-    //should the _edges vector be of shared pointer? can't solve conflict with graphnode children..
-    // no, you can actually eliminate it
-    //std::vector<std::unique_ptr<GraphEdge>> _edges; 
-
-    ////
-    //// EOF STUDENT CODE
 
     // data handles (not owned)
     GraphNode *_currentNode;
@@ -33,7 +23,7 @@ private:
     ChatBotPanelDialog *_panelDialog;
 
     // proprietary type definitions
-    typedef std::vector<std::pair<std::string, std::string>> tokenlist;
+    typedef std::vector<std::pair<std::string, std::string> > tokenlist;
 
     // proprietary functions
     template <typename T>
